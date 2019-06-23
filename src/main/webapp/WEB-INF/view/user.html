@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<script type="text/javascript">
+ 
+ $(function() {
+	$.ajax({
+		type:"post",
+	    url:"user",	
+		datatype:'html',
+		data:JSON.stringify(queryData),
+		success:function(data){
+			console.info(data);
+			${"#aaa"}.html(data);
+		}
+		
+		
+	})
+})
+</script>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
