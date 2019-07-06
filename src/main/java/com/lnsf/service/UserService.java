@@ -2,7 +2,10 @@ package com.lnsf.service;
 
 import com.lnsf.entities.User;
 import com.lnsf.entities.UserExample;
+import com.lnsf.util.PageUtil;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserService {
@@ -27,4 +30,10 @@ public interface UserService {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+	int register(String username, String password);
+
+	PageUtil<User> findByPage(int currPage);
+	
+	User selectByUsername(String username);
 }

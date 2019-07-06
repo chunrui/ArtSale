@@ -27,4 +27,8 @@ public interface ShopCarService {
     int updateByPrimaryKeySelective(ShopCar record);
 
     int updateByPrimaryKey(ShopCar record);
+    
+    int updateByUidAndAid(Integer uid, Integer aid);
+    
+    ShopCar selectBysidAnduid(Integer uid, Integer sid);
 }

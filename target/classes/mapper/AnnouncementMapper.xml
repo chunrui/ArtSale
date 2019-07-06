@@ -7,6 +7,7 @@
     <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="admin" property="admin" jdbcType="INTEGER" />
     <result column="aid" property="aid" jdbcType="INTEGER" />
+    <result column="aggreetime" property="aggreetime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    anid, announcement, uid, admin, aid
+    anid, announcement, uid, admin, aid, aggreetime
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lnsf.entities.AnnouncementExample" >
     select
@@ -101,9 +102,11 @@
   </delete>
   <insert id="insert" parameterType="com.lnsf.entities.Announcement" >
     insert into announcement (anid, announcement, uid, 
-      admin, aid)
+      admin, aid, aggreetime
+      )
     values (#{anid,jdbcType=INTEGER}, #{announcement,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
-      #{admin,jdbcType=INTEGER}, #{aid,jdbcType=INTEGER})
+      #{admin,jdbcType=INTEGER}, #{aid,jdbcType=INTEGER}, #{aggreetime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.lnsf.entities.Announcement" >
     insert into announcement
@@ -123,6 +126,9 @@
       <if test="aid != null" >
         aid,
       </if>
+      <if test="aggreetime != null" >
+        aggreetime,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="anid != null" >
@@ -139,6 +145,9 @@
       </if>
       <if test="aid != null" >
         #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="aggreetime != null" >
+        #{aggreetime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -166,6 +175,9 @@
       <if test="record.aid != null" >
         aid = #{record.aid,jdbcType=INTEGER},
       </if>
+      <if test="record.aggreetime != null" >
+        aggreetime = #{record.aggreetime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -177,7 +189,8 @@
       announcement = #{record.announcement,jdbcType=VARCHAR},
       uid = #{record.uid,jdbcType=INTEGER},
       admin = #{record.admin,jdbcType=INTEGER},
-      aid = #{record.aid,jdbcType=INTEGER}
+      aid = #{record.aid,jdbcType=INTEGER},
+      aggreetime = #{record.aggreetime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -197,6 +210,9 @@
       <if test="aid != null" >
         aid = #{aid,jdbcType=INTEGER},
       </if>
+      <if test="aggreetime != null" >
+        aggreetime = #{aggreetime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where anid = #{anid,jdbcType=INTEGER}
   </update>
@@ -205,7 +221,16 @@
     set announcement = #{announcement,jdbcType=VARCHAR},
       uid = #{uid,jdbcType=INTEGER},
       admin = #{admin,jdbcType=INTEGER},
-      aid = #{aid,jdbcType=INTEGER}
+      aid = #{aid,jdbcType=INTEGER},
+      aggreetime = #{aggreetime,jdbcType=TIMESTAMP}
     where anid = #{anid,jdbcType=INTEGER}
   </update>
+   <!-- 分页 -->
+  
+    <select id="findByPage"  resultMap="BaseResultMap">
+    select *  from    announcement
+    <if test="start!=null and size!=null">
+          limit #{start},#{size}
+    </if>
+  </select>
 </mapper>

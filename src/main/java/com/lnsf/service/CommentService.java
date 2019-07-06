@@ -2,6 +2,8 @@ package com.lnsf.service;
 
 import com.lnsf.entities.Comment;
 import com.lnsf.entities.CommentExample;
+import com.lnsf.util.PageUtil;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,4 +29,8 @@ public interface CommentService {
     int updateByPrimaryKeySelective(Comment record);
 
     int updateByPrimaryKey(Comment record);
+
+	PageUtil<Comment> findByPage(int currentPage);
+    
+    
 }

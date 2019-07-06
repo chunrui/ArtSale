@@ -2,6 +2,9 @@ package com.lnsf.service;
 
 import com.lnsf.entities.Auction;
 import com.lnsf.entities.AuctionExample;
+import com.lnsf.entities.Comment;
+import com.lnsf.util.PageUtil;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,4 +30,6 @@ public interface AuctionService {
     int updateByPrimaryKeySelective(Auction record);
 
     int updateByPrimaryKey(Auction record);
+    
+    PageUtil<Auction> findByPage(int currentPage);
 }

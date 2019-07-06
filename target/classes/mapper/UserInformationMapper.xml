@@ -225,4 +225,10 @@
       money = #{money,jdbcType=DOUBLE}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+    <select id="findByPage"  resultMap="BaseResultMap">
+    select * from userinformation
+    <if test="start!=null and size!=null">
+          limit #{start},#{size}
+    </if>
+  </select>
 </mapper>

@@ -2,7 +2,9 @@ package com.lnsf.service;
 
 import com.lnsf.entities.Photo;
 import com.lnsf.entities.PhotoExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface PhotoService {
@@ -19,6 +21,8 @@ public interface PhotoService {
     List<Photo> selectByExample(PhotoExample example);
 
     Photo selectByPrimaryKey(Integer pid);
+    
+    Photo selectByPrimaryKey2(String photourl);
 
     int updateByExampleSelective(@Param("record") Photo record, @Param("example") PhotoExample example);
 

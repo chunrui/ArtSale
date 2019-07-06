@@ -6,6 +6,8 @@
     <result column="uid" property="uid" jdbcType="INTEGER" />
     <result column="aid" property="aid" jdbcType="INTEGER" />
     <result column="num" property="num" jdbcType="INTEGER" />
+    <association property="sellingArt" column="aid" javaType="SellingArt" select="selectSellingArt">
+    </association>
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -193,4 +195,32 @@
       num = #{num,jdbcType=INTEGER}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
+  
+  <!-- 购物车物品重复加一 -->
+  <update id="updateByUidAndAid">
+  	update shopcar set num = num+1 where uid = #{arg0} and aid = #{arg1}
+  </update>
+  
+  <resultMap id="SellingartMap" type="com.lnsf.entities.SellingArt" >
+    <id column="aid" property="aid" jdbcType="INTEGER" />
+    <result column="aname" property="aname" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="adescribe" property="adescribe" jdbcType="VARCHAR" />
+    <result column="sphoto" property="sphoto" jdbcType="VARCHAR" />
+    <result column="inprice" property="inprice" jdbcType="DOUBLE" />
+    <result column="sellprice" property="sellprice" jdbcType="DOUBLE" />
+    <result column="salesvolume" property="salesvolume" jdbcType="INTEGER" />
+    <result column="stocks" property="stocks" jdbcType="INTEGER" />
+    <result column="statu" property="statu" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <select id="selectSellingArt" resultMap="SellingartMap" parameterType="int">
+  	select * from sellingart where aid = #{aid}
+  </select>
+  
+  <select id="selectBysidAnduid" resultMap="BaseResultMap">
+  	 select * from shopcar where uid = #{arg0} and sid = #{arg1};
+  </select>
+  
+
 </mapper>

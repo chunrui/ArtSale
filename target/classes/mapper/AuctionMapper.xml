@@ -255,4 +255,10 @@
       num = #{num,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="findByPage"  resultMap="BaseResultMap">
+    select * from auction 
+    <if test="start!=null and size!=null">
+          limit #{start},#{size}
+    </if>
+  </select>
 </mapper>

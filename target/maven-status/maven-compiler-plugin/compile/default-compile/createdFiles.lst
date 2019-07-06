@@ -1,9 +1,11 @@
+com\lnsf\controller\resourcesController.class
 com\lnsf\entities\SellingArt.class
 com\lnsf\service\impl\ReplyServiceImpl.class
 com\lnsf\entities\UserInformationExample.class
 com\lnsf\dao\ShopCarMapper.class
 com\lnsf\service\impl\PhotoServiceImpl.class
 com\lnsf\entities\OrderExample.class
+com\lnsf\util\PageUtil.class
 com\lnsf\service\ShopCarService.class
 com\lnsf\entities\UserInformationExample$Criterion.class
 com\lnsf\entities\ResourcesExample$Criteria.class
@@ -24,8 +26,10 @@ com\lnsf\service\impl\AnnouncementServiceImpl.class
 com\lnsf\service\impl\UserServiceImpl.class
 com\lnsf\entities\PhotoExample$GeneratedCriteria.class
 com\lnsf\entities\ResourcesExample$GeneratedCriteria.class
+com\lnsf\controller\UserInformationController.class
 com\lnsf\entities\UserExample$GeneratedCriteria.class
 com\lnsf\entities\Photo.class
+com\lnsf\interceptor\LoginInterceptor.class
 com\lnsf\dao\AuctionMapper.class
 com\lnsf\service\impl\SellingArtServiceImpl.class
 com\lnsf\dao\ReplyMapper.class
@@ -38,11 +42,13 @@ com\lnsf\entities\UserExample$Criterion.class
 com\lnsf\dao\OrderMapper.class
 com\lnsf\entities\ReplyExample.class
 com\lnsf\entities\ShopCarExample$Criteria.class
+com\lnsf\util\ResourcesUtil.class
 com\lnsf\entities\AuctionExample$GeneratedCriteria.class
 com\lnsf\entities\ShopCarExample$GeneratedCriteria.class
 com\lnsf\service\impl\ResourcesServiceImpl.class
 com\lnsf\entities\Comment.class
 com\lnsf\service\PhotoService.class
+com\lnsf\controller\SellingartController.class
 com\lnsf\entities\UserInformationExample$GeneratedCriteria.class
 com\lnsf\service\UserInformationService.class
 com\lnsf\entities\AnnouncementExample$GeneratedCriteria.class
@@ -55,6 +61,7 @@ com\lnsf\entities\ReplyExample$GeneratedCriteria.class
 com\lnsf\entities\ResourcesExample$Criterion.class
 com\lnsf\service\OrderService.class
 com\lnsf\entities\ReplyExample$Criterion.class
+com\lnsf\controller\adminResourceController.class
 com\lnsf\controller\UserController.class
 com\lnsf\dao\PhotoMapper.class
 com\lnsf\service\impl\ShopCarServiceImpl.class
@@ -66,6 +73,7 @@ com\lnsf\service\impl\CommentServiceImpl.class
 com\lnsf\entities\Reply.class
 com\lnsf\service\AuctionService.class
 com\lnsf\dao\AnnouncementMapper.class
+com\lnsf\entities\Msg.class
 com\lnsf\entities\AnnouncementExample$Criteria.class
 com\lnsf\entities\ShopCarExample$Criterion.class
 com\lnsf\entities\UserInformation.class

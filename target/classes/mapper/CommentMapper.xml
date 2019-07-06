@@ -208,4 +208,10 @@
       uid = #{uid,jdbcType=INTEGER}
     where cid = #{cid,jdbcType=INTEGER}
   </update>
+  <select id="findByPage"  resultMap="BaseResultMap">
+    select * from comment 
+    <if test="start!=null and size!=null">
+          limit #{start},#{size}
+    </if>
+  </select>
 </mapper>

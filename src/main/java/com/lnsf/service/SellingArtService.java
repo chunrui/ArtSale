@@ -2,7 +2,10 @@ package com.lnsf.service;
 
 import com.lnsf.entities.SellingArt;
 import com.lnsf.entities.SellingArtExample;
+import com.lnsf.util.PageUtil;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface SellingArtService {
@@ -27,4 +30,6 @@ public interface SellingArtService {
     int updateByPrimaryKeySelective(SellingArt record);
 
     int updateByPrimaryKey(SellingArt record);
+
+	PageUtil<SellingArt> findByPage(int currPage);
 }

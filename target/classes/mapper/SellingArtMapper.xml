@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lnsf.dao.SellingArtMapper" >
   <resultMap id="BaseResultMap" type="com.lnsf.entities.SellingArt" >
-    <id column="Aid" property="aid" jdbcType="INTEGER" />
+    <id column="aid" property="aid" jdbcType="INTEGER" />
     <result column="aname" property="aname" jdbcType="VARCHAR" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
-    <result column="describe" property="describe" jdbcType="VARCHAR" />
-    <result column="sphoto" property="sphoto" jdbcType="INTEGER" />
+    <result column="adescribe" property="adescribe" jdbcType="VARCHAR" />
+    <result column="sphoto" property="sphoto" jdbcType="VARCHAR" />
     <result column="inprice" property="inprice" jdbcType="DOUBLE" />
     <result column="sellprice" property="sellprice" jdbcType="DOUBLE" />
     <result column="salesvolume" property="salesvolume" jdbcType="INTEGER" />
-    <result column="stock" property="stock" jdbcType="INTEGER" />
-    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="stocks" property="stocks" jdbcType="INTEGER" />
+    <result column="statu" property="statu" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    Aid, aname, uid, describe, sphoto, inprice, sellprice, salesvolume, stock, status
+    aid, aname, uid, adescribe, sphoto, inprice, sellprice, salesvolume, stocks, statu
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lnsf.entities.SellingArtExample" >
     select
@@ -92,11 +92,11 @@
     select 
     <include refid="Base_Column_List" />
     from sellingart
-    where Aid = #{aid,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from sellingart
-    where Aid = #{aid,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.lnsf.entities.SellingArtExample" >
     delete from sellingart
@@ -105,20 +105,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.lnsf.entities.SellingArt" >
-    insert into sellingart (Aid, aname, uid, 
-      describe, sphoto, inprice, 
-      sellprice, salesvolume, stock, 
-      status)
+    insert into sellingart (aid, aname, uid, 
+      adescribe, sphoto, inprice, 
+      sellprice, salesvolume, stocks, 
+      statu)
     values (#{aid,jdbcType=INTEGER}, #{aname,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
-      #{describe,jdbcType=VARCHAR}, #{sphoto,jdbcType=INTEGER}, #{inprice,jdbcType=DOUBLE}, 
-      #{sellprice,jdbcType=DOUBLE}, #{salesvolume,jdbcType=INTEGER}, #{stock,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER})
+      #{adescribe,jdbcType=VARCHAR}, #{sphoto,jdbcType=VARCHAR}, #{inprice,jdbcType=DOUBLE}, 
+      #{sellprice,jdbcType=DOUBLE}, #{salesvolume,jdbcType=INTEGER}, #{stocks,jdbcType=INTEGER}, 
+      #{statu,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.lnsf.entities.SellingArt" >
     insert into sellingart
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="aid != null" >
-        Aid,
+        aid,
       </if>
       <if test="aname != null" >
         aname,
@@ -126,8 +126,8 @@
       <if test="uid != null" >
         uid,
       </if>
-      <if test="describe != null" >
-        describe,
+      <if test="adescribe != null" >
+        adescribe,
       </if>
       <if test="sphoto != null" >
         sphoto,
@@ -141,11 +141,11 @@
       <if test="salesvolume != null" >
         salesvolume,
       </if>
-      <if test="stock != null" >
-        stock,
+      <if test="stocks != null" >
+        stocks,
       </if>
-      <if test="status != null" >
-        status,
+      <if test="statu != null" >
+        statu,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -158,11 +158,11 @@
       <if test="uid != null" >
         #{uid,jdbcType=INTEGER},
       </if>
-      <if test="describe != null" >
-        #{describe,jdbcType=VARCHAR},
+      <if test="adescribe != null" >
+        #{adescribe,jdbcType=VARCHAR},
       </if>
       <if test="sphoto != null" >
-        #{sphoto,jdbcType=INTEGER},
+        #{sphoto,jdbcType=VARCHAR},
       </if>
       <if test="inprice != null" >
         #{inprice,jdbcType=DOUBLE},
@@ -173,11 +173,11 @@
       <if test="salesvolume != null" >
         #{salesvolume,jdbcType=INTEGER},
       </if>
-      <if test="stock != null" >
-        #{stock,jdbcType=INTEGER},
+      <if test="stocks != null" >
+        #{stocks,jdbcType=INTEGER},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
+      <if test="statu != null" >
+        #{statu,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -191,7 +191,7 @@
     update sellingart
     <set >
       <if test="record.aid != null" >
-        Aid = #{record.aid,jdbcType=INTEGER},
+        aid = #{record.aid,jdbcType=INTEGER},
       </if>
       <if test="record.aname != null" >
         aname = #{record.aname,jdbcType=VARCHAR},
@@ -199,11 +199,11 @@
       <if test="record.uid != null" >
         uid = #{record.uid,jdbcType=INTEGER},
       </if>
-      <if test="record.describe != null" >
-        describe = #{record.describe,jdbcType=VARCHAR},
+      <if test="record.adescribe != null" >
+        adescribe = #{record.adescribe,jdbcType=VARCHAR},
       </if>
       <if test="record.sphoto != null" >
-        sphoto = #{record.sphoto,jdbcType=INTEGER},
+        sphoto = #{record.sphoto,jdbcType=VARCHAR},
       </if>
       <if test="record.inprice != null" >
         inprice = #{record.inprice,jdbcType=DOUBLE},
@@ -214,11 +214,11 @@
       <if test="record.salesvolume != null" >
         salesvolume = #{record.salesvolume,jdbcType=INTEGER},
       </if>
-      <if test="record.stock != null" >
-        stock = #{record.stock,jdbcType=INTEGER},
+      <if test="record.stocks != null" >
+        stocks = #{record.stocks,jdbcType=INTEGER},
       </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=INTEGER},
+      <if test="record.statu != null" >
+        statu = #{record.statu,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -227,16 +227,16 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update sellingart
-    set Aid = #{record.aid,jdbcType=INTEGER},
+    set aid = #{record.aid,jdbcType=INTEGER},
       aname = #{record.aname,jdbcType=VARCHAR},
       uid = #{record.uid,jdbcType=INTEGER},
-      describe = #{record.describe,jdbcType=VARCHAR},
-      sphoto = #{record.sphoto,jdbcType=INTEGER},
+      adescribe = #{record.adescribe,jdbcType=VARCHAR},
+      sphoto = #{record.sphoto,jdbcType=VARCHAR},
       inprice = #{record.inprice,jdbcType=DOUBLE},
       sellprice = #{record.sellprice,jdbcType=DOUBLE},
       salesvolume = #{record.salesvolume,jdbcType=INTEGER},
-      stock = #{record.stock,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=INTEGER}
+      stocks = #{record.stocks,jdbcType=INTEGER},
+      statu = #{record.statu,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -250,11 +250,11 @@
       <if test="uid != null" >
         uid = #{uid,jdbcType=INTEGER},
       </if>
-      <if test="describe != null" >
-        describe = #{describe,jdbcType=VARCHAR},
+      <if test="adescribe != null" >
+        adescribe = #{adescribe,jdbcType=VARCHAR},
       </if>
       <if test="sphoto != null" >
-        sphoto = #{sphoto,jdbcType=INTEGER},
+        sphoto = #{sphoto,jdbcType=VARCHAR},
       </if>
       <if test="inprice != null" >
         inprice = #{inprice,jdbcType=DOUBLE},
@@ -265,26 +265,36 @@
       <if test="salesvolume != null" >
         salesvolume = #{salesvolume,jdbcType=INTEGER},
       </if>
-      <if test="stock != null" >
-        stock = #{stock,jdbcType=INTEGER},
+      <if test="stocks != null" >
+        stocks = #{stocks,jdbcType=INTEGER},
       </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
+      <if test="statu != null" >
+        statu = #{statu,jdbcType=INTEGER},
       </if>
     </set>
-    where Aid = #{aid,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lnsf.entities.SellingArt" >
     update sellingart
     set aname = #{aname,jdbcType=VARCHAR},
       uid = #{uid,jdbcType=INTEGER},
-      describe = #{describe,jdbcType=VARCHAR},
-      sphoto = #{sphoto,jdbcType=INTEGER},
+      adescribe = #{adescribe,jdbcType=VARCHAR},
+      sphoto = #{sphoto,jdbcType=VARCHAR},
       inprice = #{inprice,jdbcType=DOUBLE},
       sellprice = #{sellprice,jdbcType=DOUBLE},
       salesvolume = #{salesvolume,jdbcType=INTEGER},
-      stock = #{stock,jdbcType=INTEGER},
-      status = #{status,jdbcType=INTEGER}
-    where Aid = #{aid,jdbcType=INTEGER}
+      stocks = #{stocks,jdbcType=INTEGER},
+      statu = #{statu,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=INTEGER}
   </update>
+  
+  <!-- 分页 -->
+  
+    <select id="findByPage"  resultMap="BaseResultMap">
+    select *  from    sellingart
+    <if test="start!=null and size!=null">
+          limit #{start},#{size}
+    </if>
+  </select>
+  
 </mapper>

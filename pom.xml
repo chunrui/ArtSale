@@ -172,11 +172,7 @@
 			<version>${druid.version}</version>
 		</dependency>
 		<!-- oracle驱动 -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>${oracle.version}</version>
-		</dependency>
+
 		<!--mybatis分页 -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>

@@ -90,6 +90,12 @@
     from user
     where uid = #{uid,jdbcType=INTEGER}
   </select>
+    <select id="selectByLogin" resultMap="BaseResultMap" parameterType="com.lnsf.entities.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where username = #{username} and password =#{password}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from user
     where uid = #{uid,jdbcType=INTEGER}
@@ -157,6 +163,11 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select  id="selectByUid" parameterType="map"  resultType="java.lang.Integer" >
+  select uid     from user where username =#{username,jdbcType=VARCHAR}
+  
+  </select>
+  
   <update id="updateByExampleSelective" parameterType="map" >
     update user
     <set >
@@ -225,4 +236,13 @@
       power = #{power,jdbcType=INTEGER}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+  <select id="findByPage"  resultMap="BaseResultMap">
+    select * from user 
+    <if test="start!=null and size!=null">
+          limit #{start},#{size}
+    </if>
+  </select>
+  <select id="selectByUsername"  resultMap="BaseResultMap">
+    select * from user where username= #{username}
+  </select>
 </mapper>

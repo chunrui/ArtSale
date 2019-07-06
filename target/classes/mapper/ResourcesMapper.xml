@@ -5,6 +5,7 @@
     <id column="rid" property="rid" jdbcType="INTEGER" />
     <result column="rname" property="rname" jdbcType="VARCHAR" />
     <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="rdescribe" property="rdescribe" jdbcType="VARCHAR" />
     <result column="showtime" property="showtime" jdbcType="TIMESTAMP" />
     <result column="rphoto" property="rphoto" jdbcType="INTEGER" />
     <result column="pointpraise" property="pointpraise" jdbcType="INTEGER" />
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    rid, rname, uid, showtime, rphoto, pointpraise, status
+    rid, rname, uid, rdescribe, showtime, rphoto, pointpraise, status
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lnsf.entities.ResourcesExample" >
     select
@@ -103,11 +104,11 @@
   </delete>
   <insert id="insert" parameterType="com.lnsf.entities.Resources" >
     insert into resources (rid, rname, uid, 
-      showtime, rphoto, pointpraise, 
-      status)
+      rdescribe, showtime, rphoto, 
+      pointpraise, status)
     values (#{rid,jdbcType=INTEGER}, #{rname,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER}, 
-      #{showtime,jdbcType=TIMESTAMP}, #{rphoto,jdbcType=INTEGER}, #{pointpraise,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER})
+      #{rdescribe,jdbcType=VARCHAR}, #{showtime,jdbcType=TIMESTAMP}, #{rphoto,jdbcType=INTEGER}, 
+      #{pointpraise,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.lnsf.entities.Resources" >
     insert into resources
@@ -120,6 +121,9 @@
       </if>
       <if test="uid != null" >
         uid,
+      </if>
+      <if test="rdescribe != null" >
+        rdescribe,
       </if>
       <if test="showtime != null" >
         showtime,
@@ -143,6 +147,9 @@
       </if>
       <if test="uid != null" >
         #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="rdescribe != null" >
+        #{rdescribe,jdbcType=VARCHAR},
       </if>
       <if test="showtime != null" >
         #{showtime,jdbcType=TIMESTAMP},
@@ -176,6 +183,9 @@
       <if test="record.uid != null" >
         uid = #{record.uid,jdbcType=INTEGER},
       </if>
+      <if test="record.rdescribe != null" >
+        rdescribe = #{record.rdescribe,jdbcType=VARCHAR},
+      </if>
       <if test="record.showtime != null" >
         showtime = #{record.showtime,jdbcType=TIMESTAMP},
       </if>
@@ -198,6 +208,7 @@
     set rid = #{record.rid,jdbcType=INTEGER},
       rname = #{record.rname,jdbcType=VARCHAR},
       uid = #{record.uid,jdbcType=INTEGER},
+      rdescribe = #{record.rdescribe,jdbcType=VARCHAR},
       showtime = #{record.showtime,jdbcType=TIMESTAMP},
       rphoto = #{record.rphoto,jdbcType=INTEGER},
       pointpraise = #{record.pointpraise,jdbcType=INTEGER},
@@ -214,6 +225,9 @@
       </if>
       <if test="uid != null" >
         uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="rdescribe != null" >
+        rdescribe = #{rdescribe,jdbcType=VARCHAR},
       </if>
       <if test="showtime != null" >
         showtime = #{showtime,jdbcType=TIMESTAMP},
@@ -234,6 +248,7 @@
     update resources
     set rname = #{rname,jdbcType=VARCHAR},
       uid = #{uid,jdbcType=INTEGER},
+      rdescribe = #{rdescribe,jdbcType=VARCHAR},
       showtime = #{showtime,jdbcType=TIMESTAMP},
       rphoto = #{rphoto,jdbcType=INTEGER},
       pointpraise = #{pointpraise,jdbcType=INTEGER},

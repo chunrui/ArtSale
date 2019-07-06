@@ -2,7 +2,11 @@ package com.lnsf.service;
 
 import com.lnsf.entities.Announcement;
 import com.lnsf.entities.AnnouncementExample;
+import com.lnsf.entities.SellingArt;
+import com.lnsf.util.PageUtil;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface AnnouncementService {
@@ -27,4 +31,6 @@ public interface AnnouncementService {
     int updateByPrimaryKeySelective(Announcement record);
 
     int updateByPrimaryKey(Announcement record);
+    
+    PageUtil<Announcement> findByPage(int currPage);
 }

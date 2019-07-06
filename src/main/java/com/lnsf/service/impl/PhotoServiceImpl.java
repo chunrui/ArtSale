@@ -17,67 +17,74 @@ public class PhotoServiceImpl implements PhotoService {
 	@Override
 	public int countByExample(PhotoExample example) {
 		// TODO Auto-generated method stub
-		return 0;
+		return photoMapper.countByExample(example);
 	}
 
 	@Override
 	public int deleteByExample(PhotoExample example) {
 		// TODO Auto-generated method stub
-		return 0;
+		return photoMapper.deleteByExample(example);
 	}
 
 	@Override
 	public int deleteByPrimaryKey(Integer pid) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return photoMapper.deleteByPrimaryKey(pid);
 	}
 
 	@Override
 	public int insert(Photo record) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = photoMapper.insert(record);
+		return result;
 	}
 
 	@Override
 	public int insertSelective(Photo record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return photoMapper.insertSelective(record);
 	}
 
 	@Override
 	public List<Photo> selectByExample(PhotoExample example) {
 		// TODO Auto-generated method stub
-		return null;
+		return photoMapper.selectByExample(example);
 	}
 
 	@Override
 	public Photo selectByPrimaryKey(Integer pid) {
 		// TODO Auto-generated method stub
-		return null;
+		return photoMapper.selectByPrimaryKey(pid);
 	}
-
 	@Override
 	public int updateByExampleSelective(Photo record, PhotoExample example) {
 		// TODO Auto-generated method stub
-		return 0;
+		return photoMapper.updateByExampleSelective(record, example);
 	}
 
 	@Override
 	public int updateByExample(Photo record, PhotoExample example) {
 		// TODO Auto-generated method stub
-		return 0;
+		return photoMapper.updateByExample(record, example);
 	}
 
 	@Override
 	public int updateByPrimaryKeySelective(Photo record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return photoMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
 	public int updateByPrimaryKey(Photo record) {
 		// TODO Auto-generated method stub
-		return 0;
+		return photoMapper.updateByPrimaryKey(record);
 	}
+
+	@Override
+	public Photo selectByPrimaryKey2(String photourl) {
+		// TODO Auto-generated method stub
+		return photoMapper.selectByPrimaryKey2(photourl);
+	}
+
+
 
 }

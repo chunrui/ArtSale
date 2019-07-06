@@ -2,6 +2,8 @@ package com.lnsf.service;
 
 import com.lnsf.entities.Order;
 import com.lnsf.entities.OrderExample;
+import com.lnsf.util.PageUtil;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,4 +29,10 @@ public interface OrderService {
     int updateByPrimaryKeySelective(Order record);
 
     int updateByPrimaryKey(Order record);
+    
+    //分页查询
+	PageUtil<Order> findByPage(int currPage);
+	
+	//模糊查询
+	List<Order> selectByselectInfo(String selectInfo);
 }

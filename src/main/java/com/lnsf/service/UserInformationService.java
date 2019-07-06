@@ -2,7 +2,10 @@ package com.lnsf.service;
 
 import com.lnsf.entities.UserInformation;
 import com.lnsf.entities.UserInformationExample;
+import com.lnsf.util.PageUtil;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface UserInformationService {
@@ -27,4 +30,6 @@ public interface UserInformationService {
     int updateByPrimaryKeySelective(UserInformation record);
 
     int updateByPrimaryKey(UserInformation record);
+
+	PageUtil<UserInformation> findByPage(int currPage);
 }

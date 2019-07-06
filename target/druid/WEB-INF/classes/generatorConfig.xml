@@ -1,10 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?> 
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
 	<!-- jar包的路径 -->
-	<classPathEntry
-        location="G:\mavenwarehouse\com\oracle\ojdbc14\10.2.0.3.0\ojdbc14-10.2.0.3.0.jar" />
-	<context id="oracle">	
+<context id="mysql">
 	<commentGenerator>
 			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
 			<property name="suppressAllComments" value="true" /><!-- 是否取消注释 -->
@@ -32,7 +30,8 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.lnsf.dao" targetProject="src/main/java">
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
-	<table tableName="user" domainObjectName="User"></table>
+		<table tableName="sellingart" domainObjectName="SellingArt"></table>
+	<!-- <table tableName="user" domainObjectName="User"></table>
 	<table tableName="resources" domainObjectName="Resources"></table>
 	<table tableName="sellingart" domainObjectName="SellingArt"></table>
 	<table tableName="userinformation" domainObjectName="UserInformation"></table>
@@ -42,9 +41,9 @@
 	<table tableName="reply" domainObjectName="Reply"></table>
 	<table tableName="order" domainObjectName="Order"></table>
 	<table tableName="shopcar" domainObjectName="ShopCar"></table>
-	<table tableName="announcement" domainObjectName="Announcement"></table>
+	<table tableName="announcement" domainObjectName="Announcement"></table> -->
  <!--   		<table  tableName="DEPT" domainObjectName="Dept"></table>
    		<table  tableName="BONUS" domainObjectName="Bonus"></table>
    		<table  tableName="SALGRADE" domainObjectName="Salgrade"></table> -->
-        </context>
+      </context>
 </generatorConfiguration>
